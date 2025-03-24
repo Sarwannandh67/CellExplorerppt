@@ -1,0 +1,665 @@
+/* Base Styles */
+:root {
+    --primary-color: #8a2be2;
+    --secondary-color: #4b0082;
+    --accent-color: #ff7f50;
+    --text-color: #333;
+    --light-text: #f5f5f5;
+    --bg-color: #f0f8ff;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-radius: 15px;
+    --blur-effect: blur(12px);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Glassmorphism Components */
+.glass-card, .glass-header, .glass-footer, .tooltip {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur-effect);
+    -webkit-backdrop-filter: var(--blur-effect);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--glass-radius);
+}
+
+/* Header Styles */
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    top: 20px;
+    left: 5%;
+    right: 5%;
+    z-index: 1000;
+    transition: all var(--transition-speed);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Landing Section */
+.landing {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-position: center;
+}
+
+.landing-content {
+    text-align: center;
+    padding: 50px;
+    max-width: 700px;
+}
+
+.landing-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
+}
+
+/* Explore Section */
+.explore {
+    text-align: center;
+    position: relative;
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.cell-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+/* Cell and Organelles */
+.cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s;
+}
+
+.cell:hover {
+    transform: scale(1.02) rotate(2deg);
+}
+
+.cell-membrane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 160, 122, 0.6);
+    box-shadow: inset 0 0 30px rgba(255, 160, 122, 0.3);
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-speed);
+}
+
+.cell-membrane:hover {
+    border-color: rgba(255, 160, 122, 0.9);
+    box-shadow: inset 0 0 50px rgba(255, 160, 122, 0.5), 0 0 20px rgba(255, 160, 122, 0.5);
+}
+
+.cytoplasm {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: rgba(173, 216, 230, 0.3);
+    cursor: pointer;
+    z-index: 5;
+}
+
+.organelle {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                filter 0.3s ease, 
+                box-shadow 0.3s ease;
+    z-index: 20;
+}
+
+.organelle:hover {
+    transform: translateZ(30px) scale(1.2);
+    z-index: 25;
+    filter: brightness(1.2);
+}
+
+.organelle-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: inherit;
+    box-shadow: inherit;
+}
+
+/* Specific Organelles */
+.nucleus {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(130, 0, 250, 0.6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(130, 0, 250, 0.3);
+}
+
+.nucleus:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.nucleus::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: rgba(180, 110, 250, 0.7);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mitochondria {
+    width: 70px;
+    height: 35px;
+    border-radius: 20px;
+    background: rgba(255, 105, 180, 0.6);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.mitochondria-1 {
+    top: 30%;
+    left: 20%;
+}
+
+.mitochondria-2 {
+    bottom: 35%;
+    right: 25%;
+    transform: rotate(45deg);
+}
+
+.golgi {
+    width: 80px;
+    height: 60px;
+    border-radius: 10px;
+    background: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    top: 60%;
+    left: 30%;
+    transform: rotate(-15deg);
+}
+
+.er {
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    background: rgba(100, 149, 237, 0.6);
+    box-shadow: 0 0 10px rgba(100, 149, 237, 0.3);
+    top: 25%;
+    right: 20%;
+    transform: rotate(20deg);
+}
+
+.lysosome {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(220, 20, 60, 0.6);
+    box-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+}
+
+.lysosome-1 {
+    bottom: 30%;
+    left: 35%;
+}
+
+.lysosome-2 {
+    top: 40%;
+    right: 35%;
+}
+
+.ribosome {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(46, 139, 87, 0.7);
+    box-shadow: 0 0 8px rgba(46, 139, 87, 0.4);
+}
+
+.ribosome-1 {
+    top: 60%;
+    right: 30%;
+}
+
+.ribosome-2 {
+    bottom: 25%;
+    left: 25%;
+}
+
+.ribosome-3 {
+    top: 35%;
+    left: 45%;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    padding: 15px;
+    min-width: 200px;
+    max-width: 300px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+    transform: translateY(10px);
+}
+
+.tooltip-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.tooltip-description {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Info Panel (Side Panel) */
+.info-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    height: 100vh;
+    padding: 30px;
+    z-index: 1000;
+    transition: right 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-panel.active {
+    right: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.close-panel {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+.close-panel:hover {
+    color: var(--primary-color);
+}
+
+.panel-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.panel-subtitle {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.panel-facts li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.panel-facts li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    max-width: 800px;
+    padding: 40px;
+}
+
+/* Resources Section */
+.resources {
+    text-align: center;
+}
+
+.resources-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.resource-card {
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    transition: transform var(--transition-speed);
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+}
+
+.resource-card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.resource-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    font-weight: 500;
+    position: relative;
+}
+
+.resource-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.resource-link:hover::after {
+    width: 100%;
+}
+
+/* Footer */
+.glass-footer {
+    padding: 50px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-speed);
+}
+
+.social-icons a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(255, 127, 80, 0.1) 0%, transparent 20%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 3D Effect for Cards */
+.glass-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px) perspective(1000px) rotateX(2deg) rotateY(2deg);
+    box-shadow: 0 15px 30px rgba(31, 38, 135, 0.4);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .glass-header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        gap: 15px;
+    }
+    
+    .landing-content h1 {
+        font-size: 36px;
+    }
+    
+    .cell-container {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .nucleus {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .info-panel {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .nucleus {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .mitochondria {
+        width: 50px;
+        height: 25px;
+    }
+    
+    .resources-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .resource-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}

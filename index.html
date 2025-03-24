@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Animal Cell | 3D Exploration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="glass-header">
+        <div class="logo">
+            <i class="fas fa-dna"></i>
+            <h1>CellExplorer</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Landing Section -->
+    <section id="home" class="landing">
+        <div class="landing-content glass-card">
+            <h1>Discover the Animal Cell</h1>
+            <p>Explore the fascinating world inside living cells through our interactive 3D experience.</p>
+            <a href="#explore" class="cta-button">Start Exploring</a>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section id="explore" class="explore">
+        <h2>Interactive Cell Explorer</h2>
+        <p class="section-description">Hover over cell parts to learn more or click for detailed information</p>
+        
+        <div class="cell-container">
+            <!-- Main Cell Structure -->
+            <div class="cell">
+                <!-- Each organelle is positioned absolutely within the cell -->
+                <div class="organelle nucleus" data-name="Nucleus">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle mitochondria mitochondria-1" data-name="Mitochondria">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle mitochondria mitochondria-2" data-name="Mitochondria">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle golgi" data-name="Golgi Apparatus">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle er" data-name="Endoplasmic Reticulum">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle lysosome lysosome-1" data-name="Lysosome">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle lysosome lysosome-2" data-name="Lysosome">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle ribosome ribosome-1" data-name="Ribosome">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle ribosome ribosome-2" data-name="Ribosome">
+                    <div class="organelle-inner"></div>
+                </div>
+                <div class="organelle ribosome ribosome-3" data-name="Ribosome">
+                    <div class="organelle-inner"></div>
+                </div>
+                <!-- Cell Membrane is the outer boundary -->
+                <div class="cell-membrane" data-name="Cell Membrane"></div>
+                <!-- Cytoplasm is represented by the background -->
+                <div class="cytoplasm" data-name="Cytoplasm"></div>
+            </div>
+            
+            <!-- Tooltip that appears on hover -->
+            <div class="tooltip glass-card">
+                <h3 class="tooltip-title">Cell Part</h3>
+                <p class="tooltip-description">Description will appear here when you hover over a cell part.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Panel (Slides in when a cell part is clicked) -->
+    <div class="info-panel glass-card">
+        <div class="panel-header">
+            <h2 class="panel-title">Cell Part Details</h2>
+            <button class="close-panel"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="panel-content">
+            <img src="" alt="" class="panel-image">
+            <div class="panel-details">
+                <h3 class="panel-subtitle">Function</h3>
+                <p class="panel-description"></p>
+                <h3 class="panel-subtitle">Structure</h3>
+                <p class="panel-structure"></p>
+                <h3 class="panel-subtitle">Interesting Facts</h3>
+                <ul class="panel-facts">
+                    <!-- Facts will be added dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="glass-card about-content">
+            <h2>About This Project</h2>
+            <p>This interactive website was created to make learning about animal cell biology engaging and accessible. The 3D design and glassmorphism effects help visualize complex cellular structures in a modern, intuitive way.</p>
+            <p>Our goal is to provide an educational resource that can be used by students, teachers, and anyone curious about the microscopic world inside living organisms.</p>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <h2>Additional Resources</h2>
+        <div class="resources-container">
+            <div class="resource-card glass-card">
+                <i class="fas fa-book"></i>
+                <h3>Educational Materials</h3>
+                <p>Access free textbooks and learning materials about cell biology.</p>
+                <a href="#" class="resource-link">Explore Resources</a>
+            </div>
+            <div class="resource-card glass-card">
+                <i class="fas fa-flask"></i>
+                <h3>Laboratory Experiments</h3>
+                <p>Virtual lab experiments to further explore cell functions.</p>
+                <a href="#" class="resource-link">Try Experiments</a>
+            </div>
+            <div class="resource-card glass-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>Quiz Yourself</h3>
+                <p>Test your knowledge with interactive quizzes on cell biology.</p>
+                <a href="#" class="resource-link">Take a Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-dna"></i>
+                <h3>CellExplorer</h3>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#explore">Explore</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CellExplorer by Sarwan Nandh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Overlay for background effect -->
+    <div class="overlay"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
